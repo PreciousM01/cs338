@@ -56,7 +56,7 @@ password: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
 
 Level 6 -> Level 7
 search for a file with the given properties: find / -type f -user bandit7 -group bandit6 -size 33c (c specifies the size is in bytes, f is for regular readable fiiles)
-/var/lib/dpkg/info/bandit7.password
+Show the content of the file obtained using: cat /var/lib/dpkg/info/bandit7.password
 password: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
 
 
