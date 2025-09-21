@@ -1,0 +1,34 @@
+Name: Mary Precious Feutsop Ngouane
+
+===== DAYTIME =====
+1. TCP 3-way handshake 
+
+22	85.373024356	192.168.80.128	129.6.15.28	TCP	74	53452 → 13 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM TSval=4022981347 TSecr=0 WS=128
+23	85.414850941	129.6.15.28	192.168.80.128	TCP	60	13 → 53452 [SYN, ACK] Seq=0 Ack=1 Win=64240 Len=0 MSS=1460
+24	85.415542642	192.168.80.128	129.6.15.28	TCP	54	53452 → 13 [ACK] Seq=1 Ack=1 Win=64240 Len=0
+
+2. Port number: 53452
+
+3. The client port is important because it tells the server which particular program or process on the client computer requested the data. 
+
+4. Daytime response frame:
+25	85.453386938	129.6.15.28	192.168.80.128	DAYTIME	105	DAYTIME Response
+
+5. SYN means synchronize. Its when a computer tells another computer that they want to communicate with them, and shares sequence number to initiate communication. 
+ACK means acknowledgement. Its sent by a computer as a reponse acknowledging that they received the message sent by the other computer. 
+
+6. The daytime server computer initaites the closing of the connection. We can see this because the daytime server first sends the FIN command, which is later acknowledged by the nc server. The frame summary:
+27	85.453876473	129.6.15.28	192.168.80.128	TCP	60	13 → 53452 [FIN, PSH, ACK] Seq=52 Ack=1 Win=64240 Len=0 
+
+===== HTTP ===== 
+1. Two TCP connections were opened. We know this because there are two TCP 3-way handshakes that are made. One between port 80 and 36864, and another between port 80 and 36874.
+
+2. We can tell where the homepage's html was requested. After establishing the TCP 3-way handshake, the home computer requests th html page using the HTTP protocol, and the GET command. The frame summary is:
+7	0.014688665	192.168.80.128	172.233.221.124	HTTP	404	GET /index.html HTTP/1.1 
+
+3. We can tell where the photograph is requested. The client computer sends an HTTP request using the GET command to request for the photograph. The frame summary is:
+11	0.102438016	192.168.80.128	172.233.221.124	HTTP	443	GET /jeff-square-colorado.jpg HTTP/1.1  
+
+===== QUESTIONS =====
+1. Why did we have two connections open for the web browser? How do we know which program in the computer is using a given port from the frame summary?
+2. The web page is stored on the web server, and our local computer is requesting access to it right? If that's the case, how does the local computer know what is on the web server to request for it. For instance, the local computer request the html, before the server sends it. It requests the media as well before the server sends it. How does it know what to request for?
